@@ -1,0 +1,43 @@
+<head>
+    <!-- Bootstrap include -->
+    <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous"
+    />
+    <!-- jquery 버전 유의 -->
+    <!-- slim/jquery, 3.1.0 윗 버전에서 ajax가 작동하지 않는 오류 확인 -->
+    <!-- Bootstrap의 CDN을 copy&paste 하되 Line 8의 버전만 3.1.0으로 수정하세요 -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+</head>
+
+<body>
+    <div class="container" style="background-color: rgba(166, 208, 229, 0.558);">
+        <br>
+        <h1> 요트 등록하기</h1>
+        <p> 생산완료된 요트를 등록하시오 </p>
+        <hr>
+        <br>        
+    </div>
+    <div class="container" style="background-color: rgba(255, 246, 201, 0.906);">
+        <!-- 요트제조자, 요트이름, 요트색상, 요트사이즈, 요트가격 -->
+
+        <form class="px-4 py-3" action="/registYacht" method="post">
+            <label class="form-label"> 요트제조사 </label>
+            <input type="text" name="username" class="form-control">
+            <label class="form-label"> 요트이름 </label>
+            <input type="text" name="yname" class="form-control">
+            <label class="form-label"> 요트색상 </label>
+            <input type="text" name="ycolor" class="form-control">
+            <label class="form-label"> 요트사이즈 </label>
+            <input type="text" name="ysize" class="form-control">
+            <label class="form-label"> 요트가격 </label>
+            <input type="text" name="yprice" class="form-control">
+            <br>
+            <input type="submit" value="등록하기" class="btn btn-dark">
+        </form>
+    </div>
+</body>
+
+

@@ -1,0 +1,1 @@
+{"Name":"SKY_Yacht","Color":"green","Size":50,"Owner":"YachtMaker","Price":5000}

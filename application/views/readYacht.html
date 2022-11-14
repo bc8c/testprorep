@@ -1,0 +1,57 @@
+<head>
+    <!-- Bootstrap include -->
+    <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous"
+    />
+    <!-- jquery 버전 유의 -->
+    <!-- slim/jquery, 3.1.0 윗 버전에서 ajax가 작동하지 않는 오류 확인 -->
+    <!-- Bootstrap의 CDN을 copy&paste 하되 Line 8의 버전만 3.1.0으로 수정하세요 -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+</head>
+
+<body>
+    <div class="container" style="background-color: rgba(166, 208, 229, 0.558);">
+        <br>
+        <h1> 요트 조회하기</h1>
+        <p> 나의 요트를 조회 하시오 </p>
+        <hr>
+        <br>        
+    </div>
+    <div class="container" style="background-color: rgba(255, 246, 201, 0.906);">        
+        <br>
+        <label  class="form-label"> 조회할 요트 이름 </label>
+        <input type="text" class="form-control" id="yname">
+        <br>
+        <button class="btn btn-dark" id="btn-read"> 조회하기 </button>        
+        <br>
+        <hr>
+    </div>
+
+    <div id="d_result" class="container" style="background-color: rgba(255, 255, 255, 0.906);">
+    </div>
+</body>
+
+<script>
+    $("#btn-read").click(()=>{        
+
+        const name = $("#yname").val()
+        console.log(name)
+
+        $.get("/readYacht",{name}, (data)=>{
+
+            console.log(data.result)
+            console.log(data.msg)
+            
+            $("#d_result").empty()
+            $("#d_result").append(`<br><p> 요트이름 : ${data.msg.Name} </p>`)
+            $("#d_result").append(`<p> 요트색상 : ${data.msg.Color} </p>`)
+            $("#d_result").append(`<p> 요트크기 : ${data.msg.Size} </p>`)
+            $("#d_result").append(`<p> 요트주인 : ${data.msg.Owner} </p>`)
+            $("#d_result").append(`<p> 요트가격 : ${data.msg.Price} </p>`)
+        })
+    })
+
+</script>
